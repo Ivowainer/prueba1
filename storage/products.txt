@@ -1,0 +1,47 @@
+[
+   {
+      "title": "Escuadra",
+      "price": 123.45,
+      "thumbnail": "escuadra.png",
+      "id": 1
+   },
+   {
+      "title": "Globo Terráqueo",
+      "price": 345.67,
+      "thumbnail": "globo.png",
+      "id": 3
+   },
+   {
+      "title": "Escuadra Grande",
+      "price": 300,
+      "thumbnail": "escuadra.png",
+      "id": 4
+   },
+   {
+      "title": "regla",
+      "price": "63735",
+      "thumbnail": "regla.png",
+      "id": 5
+   },
+   {
+      "title": "lapiz",
+      "price": "435",
+      "thumbnail": "lapiz.png",
+      "id": 6
+   },
+   {
+      "title": "",
+      "thumbnail": "",
+      "id": 7
+   },
+   {
+      "title": "",
+      "thumbnail": "",
+      "id": 8
+   },
+   {
+      "title": "",
+      "thumbnail": "",
+      "id": 9
+   }
+]
