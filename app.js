@@ -1,17 +1,13 @@
 require('dotenv').config();
 
 const express = require('express');
-//websocket
-const {Server: HttpServer} = require('http');
-
+const { createServer } = require('http');
 const {Server: IoServer} = require('socket.io');
-//
-const app = express();
-//websocket
-const http = new HttpServer(app);
 
+const app = express();
+const http = createServer(app);
 const io = new IoServer(http);
-//
+
 const logger = require('morgan')
 
 const router = require('./src/routes/index')
@@ -20,11 +16,14 @@ const errorHandler = require('./src/middlewares/errorHandler')
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-//websocket
-app.use("static",express.static('public'));
-//
-app.set('views', './views')
-app.set('views engine', 'ejs')
+// TODO
+app.set('view engine', 'ejs')
+app.set('views', './views/pages')
+
+const PORT = process.env.PORT || 8000
+http.listen(PORT, () =>
+    console.log('SERVER READY ON PORT: ', PORT)
+)
 
 app.get('/health', async(_req, res) => {
     res.status(200).json({
@@ -36,10 +35,9 @@ app.use('/api', router)
 app.use(errorHandler)
 app.use(logger('dev'))
 
-//websocket
-
+// TODO: 
 app.get("/", (_req, res)=>{
-    res.sendFile("index.html",{root: __dirname});
+    res.render("index")
 })
 const messages = [];
 

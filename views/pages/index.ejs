@@ -40,40 +40,15 @@
     </div>
   </div>
 
-  <% if(productsAll.lenght===0){ %>
-  <div class="alert alert-danger" role="alert">
-    not products!
-  </div>
-  <% } else{ %>
-  <table class="table table-dark table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Thumbnail</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% productsAll.forEach(i=>{ %>
-      <tr>
-        <td><%= i.title %></td>
-        <td><%= i.price %></td>
-        <td><%= i.thumbnail %></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  <%  } %>
+  <!-- TODO: -->
   <%- include('../partials/chat.ejs') %>
-  <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"
-    integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.socket.io/4.5.3/socket.io.min.js" integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi" crossorigin="anonymous"></script>
   <script>
     const socket = io();
 
     const messages = [];
 
-    function updateMessages(messages) {
+    /* function updateMessages(messages) {
       let messagesToList = ''
       messages.forEach(i => {
         messagesToList = messagesToList + `<li>${i.id}: ${i.content}</li>`
@@ -98,7 +73,7 @@
         messages.push(i)
       })
       updateMessages(messages);
-    })
+    }) */
   </script>
 
 </body>
